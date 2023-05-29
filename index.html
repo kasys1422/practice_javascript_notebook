@@ -712,10 +712,12 @@ window.addEventListener("load", function() {
 }
     `
     ], {type: 'application/octet-stream'});
-    const url = window.URL.createObjectURL(blob);
-    a.download = 'practice_javascript.ipynb';
-    a.href = url;
-    window.URL.revokeObjectURL(url);
+    const url = URL.createObjectURL(blob);
+    const downloader = document.createElement("a");
+    downloader.download = 'practice_javascript.ipynb';
+    downloader.href = url;
+    downloader.click();
+    URL.revokeObjectURL(url);
     })
     
 });
